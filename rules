@@ -1,0 +1,71 @@
+
+rules:
+	at list one location minimum, loaction /  is deault loaction. 
+	location must contain method;
+	if it is cgi , not allowed to turn on autoindex;
+	for redirection internal and external no allowed to autoindex;
+	all the path is relative path;
+	/ loaction can't have auto index, if you want autoinddex it must have to creat a location.
+	error page path should be full releative path 
+
+
+	for delete method:
+	url:/upload/name.test
+		root=./www/tmp
+		delete_path = ./www/tmp/name.test
+	for delete method : other than /upload forbiden 
+
+	if url: /upload
+		list the files in directory ./www/tmp
+
+
+	/local/wwp/index.html
+	/example{
+	#	root ./www
+		index index.html
+	}
+	/example/w/s{}
+
+
+
+	./www/example/index.html
+
+
+
+
+
+
+
+	server {
+	server_name		test3.fr;  ##dskjkdsjk ##
+	host		127.0.0.1:20802;
+	max_body	100;
+	#error_page 404 404.html;
+	#error_page 500 500.html;
+	#error_page 501 501.html;
+	root		/Users/areheman/Downloads/webserv-fabio/www/fabio;
+	index_page	index.html;
+	location / {
+		root 	/Users/areheman/Downloads/webserv-fabio/www/fabio;
+		allow	POST GET;
+	}
+	location /first {
+		root /Users/areheman/Downloads/webserv-fabio/www/fabio;
+		allow	POST GET;
+	#	index_page	index.html;
+	}
+	
+}
+
+server {
+	server_name		Fabio;
+	host		127.0.0.1:8003;
+	max_body	100;
+
+#	download	/Users/areheman/Downloads/webserv-fabio/www;
+	root		/Users/areheman/Downloads/webserv-fabio/www;
+	index_page	index.html;
+	location / {
+		allow	POST GET;
+	}
+}
